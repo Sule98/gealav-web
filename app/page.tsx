@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,7 +9,7 @@ export default function Home() {
         Secondary Background
       </div>
       <div className="bg-text text-primary p-4">
-        Text Color
+        Text Color TEXT
       </div>
     </>
   );
