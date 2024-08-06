@@ -2,14 +2,9 @@ import React, { ReactNode, useState } from "react";
 import Menu, { MenuItem } from "./Menu";
 import { FaBars, FaTimes, FaTimesCircle } from "react-icons/fa";
 import Link from "next/link";
+import MenuGrid from "./MenuGrid";
 
-const MenuSpecial = ({
-  menuItems,
-  children,
-}: {
-  menuItems: MenuItem[];
-  children: ReactNode;
-}) => {
+const MenuSpecial = ({ menuItems }: { menuItems: MenuItem[] }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return isOpen ? (
@@ -21,7 +16,7 @@ const MenuSpecial = ({
         <FaTimes className="ml-2 mr-1 text-2xl" />
         CLOSE
       </button>
-      {children}
+      <MenuGrid menuItems={menuItems}/>
     </div>
   ) : (
     <button
