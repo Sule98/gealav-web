@@ -1,9 +1,15 @@
 "use client";
 import MenuSpecial from "./Special";
 import Menu, { MenuItem } from "./Menu";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
-import { FaPlus, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
+import {
+  FaPlus,
+  FaMinus,
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+} from "react-icons/fa";
 
 const Contacto = ({
   etiqueta,
@@ -19,35 +25,46 @@ const Contacto = ({
 );
 
 const MenuGrid = ({ menuItems }: { menuItems: MenuItem[] }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
+  const [hijos, setHijos] = useState<MenuItem[] | null>(null);
+
   return (
     <nav className="grid grid-cols-3 gap-6 p-10 text-2xl">
       <div>
         <ul className="space-y-3">
           {menuItems
-            .filter((item) => {
-              return !item.showInMenu1;
-            })
+            .filter((item) => !item.showInMenu1)
             .map((item, index) => (
               <li key={index}>
-                <Link
-                  href={item.link}
-                  className="hover:text-primary duration-300"
+                <div
+                  className="flex justify-between items-center cursor-pointer"
+                  onClick={() =>
+                    item.hijos ? setHijos(item.hijos) : setHijos(null)
+                  }
                 >
-                  <div className="flex justify-between items-center">
+                  <Link
+                    href={item.link}
+                    className="hover:text-primary duration-300"
+                  >
                     {item.text}
-                    {item.hijos && <FaPlus />}
-                  </div>
-                </Link>
+                  </Link>
+                  {item.hijos &&
+                    (openMenuIndex === index ? <FaMinus /> : <FaPlus />)}
+                </div>
               </li>
             ))}
         </ul>
       </div>
+
+      {/* Segunda columna para los hijos */}
       <div>
-        <h1>hola</h1>
+        {hijos?.map((child, childIndex) => (
+          <li key={childIndex}>
+            <Link href={child.link} className="hover:text-primary duration-300">
+              {child.text}
+            </Link>
+          </li>
+        ))}
       </div>
 
       <div className="ml-2 space-y-4">
@@ -57,31 +74,25 @@ const MenuGrid = ({ menuItems }: { menuItems: MenuItem[] }) => {
           Avenida Independencia Plaza de la Revolución Piso #6 (GEALAV)
         </Contacto>
         <Contacto etiqueta="Horario de Trabajo">
-        Lunes a Viernes 8:00am - 5:00pm
+          Lunes a Viernes 8:00am - 5:00pm
         </Contacto>
-        <Contacto etiqueta="Telefóno">
-        (403) 255-5521
-        </Contacto>
-        <Contacto etiqueta="Mail">
-        dirección@gealav.com
-        </Contacto>
-        <div>
-         </div> 
-        
+        <Contacto etiqueta="Teléfono">(403) 255-5521</Contacto>
+        <Contacto etiqueta="Mail">dirección@gealav.com</Contacto>
+
         <div className="flex space-x-5 text-primary">
-          <a href="https://www.facebook.com ">
-            <FaFacebook className =" hover:text-text"size={30} />
+          <a href="https://www.facebook.com">
+            <FaFacebook className="hover:text-text" size={30} />
           </a>
-          <a href="https://www.instagram.com ">
-            <FaInstagram  className =" hover:text-text" size={30} />
-          
+          <a href="https://www.instagram.com">
+            <FaInstagram className="hover:text-text" size={30} />
           </a>
-          <a href="https://www.twitter.com ">
-            <FaTwitter  className =" hover:text-text" size={30} />
+          <a href="https://www.twitter.com">
+            <FaTwitter className="hover:text-text" size={30} />
           </a>
         </div>
       </div>
     </nav>
   );
 };
+
 export default MenuGrid;

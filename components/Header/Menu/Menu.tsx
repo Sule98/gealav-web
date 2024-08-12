@@ -16,11 +16,11 @@ export type MenuItem = {
 
 const menuItems: MenuItem[] = [
   { text: "Inicio", link: "#home", showInMenu1: true, showInMenu2: false },
-  { text: "Estructura", link: "#estructura" },
-  { text: "Noticias ", link: "news" },
+  { text: "Estructura", link: "/estructura" },
+  { text: "Noticias ", link: "/news" },
   { text: "Contacto", link: "#contact" },
-  { text: "Legislaciones", link: "#legal", expandido: true },
-  { text: "Oportunidades de Negocio", link: "#negocio", expandido: true },
+  { text: "Legislaciones", link: "/legal"},
+  { text: "Oportunidades ", link: "#oportunidades" },
   {
     text: "Aqui Estamos",
     link: "#estamos",
@@ -35,7 +35,7 @@ const menuItems: MenuItem[] = [
 
 const Menu = () => {
   return (
-    <ul className="list-none m-0 p-3 overflow-hidden bg-white">
+    <ul className="list-none m-0 p-3 overflow-hidden bg-white flex space-x-5">
       {menuItems
         .filter((item) => {
           return !item.expandido;
@@ -43,14 +43,14 @@ const Menu = () => {
         .map((item) => (
           <li className="float-left text-center" key={item.text}>
             <a
-              className="flex items-center ml-3 transition-colors duration-300 text-secondary font-bold p-4 no-underline text-xl bold hover:text-text hover:underline"
+              className="transition-all duration-500 ease-in-out text-secondary font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-black no-underline  bold hover:text-text border-y-2 border-transparent hover:border-text hover:bg-primary/30"
               href={item.link}
             >
               {item.text}
             </a>
           </li>
         ))}
-      <MenuSpecial menuItems={menuItems} />
+    
     </ul>
   );
 };
