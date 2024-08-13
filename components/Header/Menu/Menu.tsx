@@ -19,7 +19,7 @@ const menuItems: MenuItem[] = [
   { text: "Estructura", link: "/estructura" },
   { text: "Noticias ", link: "/news" },
   { text: "Contacto", link: "#contact" },
-  { text: "Legislaciones", link: "/legal"},
+  { text: "Legislaciones", link: "/legal" },
   { text: "Oportunidades ", link: "#oportunidades" },
   {
     text: "Aqui Estamos",
@@ -43,14 +43,13 @@ const Menu = () => {
         .map((item) => (
           <li className="float-left text-center" key={item.text}>
             <a
-              className="transition-all duration-500 ease-in-out text-secondary font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-black no-underline  bold hover:text-text border-y-2 border-transparent hover:border-text hover:bg-primary/30"
+              className="transition-all duration-300 ease-in-out text-secondary font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-black no-underline  bold hover:text-text border-b-4 border-transparent hover:border-text"
               href={item.link}
             >
               {item.text}
             </a>
           </li>
         ))}
-    
     </ul>
   );
 };
