@@ -10,19 +10,9 @@ import {
   FaTwitter,
   FaInstagram,
 } from "react-icons/fa";
+import Contacto from "./Contact";
 
-const Contacto = ({
-  etiqueta,
-  children,
-}: {
-  etiqueta: string;
-  children: string;
-}) => (
-  <div>
-    <h1 className="text-primary font-bold italic">{etiqueta}:</h1>
-    {children}
-  </div>
-);
+
 
 const MenuGrid = ({ menuItems }: { menuItems: MenuItem[] }) => {
   const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
