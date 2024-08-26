@@ -35,7 +35,8 @@ const menuItems: MenuItem[] = [
 
 const Menu = () => {
   return (
-    <ul className="list-none m-0 p-3 overflow-hidden bg-white flex space-x-5">
+    
+    <ul className="  list-none m-0 p-3 overflow-hidden flex space-x-5">
       {menuItems
         .filter((item) => {
           return !item.expandido;
@@ -43,7 +44,7 @@ const Menu = () => {
         .map((item) => (
           <li className="float-left text-center" key={item.text}>
             <a
-              className="transition-all duration-300 ease-in-out text-secondary font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-black no-underline  bold hover:text-text border-b-4 border-transparent hover:border-text"
+              className="transition-all duration-300 ease-in-out text-white font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-primary no-underline  bold hover:text-secondary border-b-4 border-transparent hover:border-primary"
               href={item.link}
             >
               {item.text}
