@@ -6,6 +6,6 @@ import { ReactNode } from "react";
 
 export default function Home() {
   return (
-    <div>Hello Mundo</div>
+<h1> Hola</h1>
   );
 }
