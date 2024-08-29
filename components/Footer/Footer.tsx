@@ -7,13 +7,12 @@ import Contacto from "../Header/Menu/Contact";
 import { IconType } from "react-icons";
 import BfFooter from "@/public/footer.svg";
 
-
 const FooterContainer = () => {
   return (
-    <div className="flex-grow min-h-screen">
-
-   
-    <footer className=" w-full h-full bg-cover fill-slate-500 bg-center" style={{ backgroundImage: `url('/footer.svg')` }}>
+    <footer
+      className=" w-full bg-cover fill-slate-500 bg-center fixed bottom-0"
+      style={{ backgroundImage: `url(${BfFooter.src})` }}
+    >
       <div className=" relative text-4xl font-bold flex justify-center text-primary">
         Contáctenos
       </div>
@@ -35,7 +34,6 @@ const FooterContainer = () => {
         </div>
       </div>
     </footer>
-    </div>
   );
 };
 
