@@ -5,7 +5,7 @@ import Menu from "./Menu/Menu";
 
 const Header = () => {
   return (
-    <div className=" flex justify-between items-center bg-white">
+    <div className=" fixed z-[999] w-screen flex justify-between  items-center bg-black opacity-75 px-5">
       <div className="hover:skew-y-3">
         <a href="#Inicio">
         <Image src="/logo.png" alt="Logo" width={200} height={250}/>
