@@ -1,2 +1,12 @@
 # GEALAV
 Este proyecto es el sitio web del Grupo Empresarial de Alimentos y Aves, donde se muestra información relacionada con el grupo, así como detalles de toda su estructura y el quehacer diario de cada una de las empresas que pertenecen a este grupo. El objetivo principal de este sitio web es proporcionar a los usuarios una visión integral de las operaciones y actividades del grupo, así como ofrecer información actualizada sobre sus productos, servicios y noticias relevantes. Además, se busca promover la transparencia y la comunicación efectiva con los clientes, socios comerciales y la comunidad en general.
+
+## Environment variables
+
+Begin by copying the preset variables from `env.example` file, like this:
+
+```bash
+cp env.example .env.local
+```
+
+And wait for the changes to be applied (the server restarts automatically whenever these variables change).
