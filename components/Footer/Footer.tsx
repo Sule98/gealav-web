@@ -9,7 +9,7 @@ import BfFooter from "@/public/footer.png";
 
 const FooterContainer = () => {
   return (
-    <div className=" relative w-full h-32 bg-black">
+    <div className=" relative ">
       <div className="absolute bottom-0 left-0 w-full h-96 text-white bg-secondary rounded-t-full">
         <div className="   flex p-7 justify-center">
           <a className="transition-all duration-300 underline-animation ease-in-out text-4xl font-bold  hover:text-primary ">
