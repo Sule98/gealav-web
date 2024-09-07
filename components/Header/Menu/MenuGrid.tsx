@@ -1,28 +1,15 @@
 "use client";
-import MenuSpecial from "./Special";
-import Menu, { MenuItem } from "./Menu";
-import React, { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import {
-  FaPlus,
-  FaMinus,
   FaFacebook,
-  FaTwitter,
   FaInstagram,
+  FaMinus,
+  FaPlus,
+  FaTwitter,
 } from "react-icons/fa";
-
-const Contacto = ({
-  etiqueta,
-  children,
-}: {
-  etiqueta: string;
-  children: string;
-}) => (
-  <div>
-    <h1 className="text-primary font-bold italic">{etiqueta}:</h1>
-    {children}
-  </div>
-);
+import Contacto from "./Contact";
+import { MenuItem } from "./Menu";
 
 const MenuGrid = ({ menuItems }: { menuItems: MenuItem[] }) => {
   const [openMenuIndex, setOpenMenuIndex] = useState<number | null>(null);
