@@ -28,14 +28,6 @@ export function getPlaceholderImage(width = 1366, height = 768) {
   return `https://picsum.photos/id/${randomId}/${width}/${height}`;
 }
 
-export function getUniqueCategories(categories) {
-  const uniqueCategories = categories
-    .filter((item, pos, items) => item && items.indexOf(item) === pos)
-    .sort();
-  uniqueCategories.unshift("Todo");
-  return uniqueCategories;
-}
-
 // Define a type for the function's return value if you like
 interface AccessToken {
   accessToken: string;
