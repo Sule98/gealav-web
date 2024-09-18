@@ -11,6 +11,7 @@ export default function Home() {
         showLogo={true} // Opcional: muestra el logotipo
         imgSrc={Banner.src}
       />
+     HOLAAA
       <main className="h-screen"></main>
     </div>
   );
