@@ -1,16 +1,13 @@
 "use client";
-import MenuSpecial from "./Special";
-import Menu, { MenuItem } from "./Menu";
-import React, { ReactNode, useState } from "react";
-import Link from "next/link";
-import {
-  FaPlus,
-  FaMinus,
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-} from "react-icons/fa";
+
 import { Icon } from "next/dist/lib/metadata/types/metadata-types";
+import { ReactNode } from "react";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaTwitter
+} from "react-icons/fa";
+
 const Contacto = ({
     etiqueta,
     children,

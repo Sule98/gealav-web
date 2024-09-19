@@ -1,7 +1,5 @@
 import Hero from "@/components/Hero";
 import Banner from "@/public/banner.jpg";
-import MobileFooter from "@/components/Footer/FooterMobile";
-
 
 export default function Home() {
   return (

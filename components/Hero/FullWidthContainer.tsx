@@ -1,5 +1,12 @@
 import clsx from "clsx";
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
+
+interface FullWidthContainerProps {
+  children?: ReactNode;
+  className?: string;
+  fullWidthChildren?: boolean;
+}
+
 /**
  * Renders a container component that spans the full width of the screen or a maximum width container.
  * @param children - The content to be rendered inside the container.
@@ -7,17 +14,11 @@ import React, { ReactNode } from 'react';
  * @param fullWidthChildren - Determines whether the children should span the full width of the container or be contained within a maximum width container.
  * @returns The rendered FullWidthContainer component.
  */
-interface FullWidthContainerProps {
-  children?: ReactNode;
-  className?: string;
-  fullWidthChildren?: boolean;
-}
-
 export default function FullWidthContainer({
   children,
   className = "",
   fullWidthChildren = false,
-}) {
+}: FullWidthContainerProps) {
   return (
     <div
       style={{ margin: "0 calc(50% - 50vw)" }}

@@ -1,9 +1,6 @@
 "use client";
-import React, { useState } from "react";
-import { FaBars, FaTimes, FaTimesCircle } from "react-icons/fa";
+
 import Link from "next/link";
-import MenuSpecial from "./Special";
-import MenuGrid from "./MenuGrid";
 
 export type MenuItem = {
   text: string;
@@ -15,27 +12,26 @@ export type MenuItem = {
 };
 
 const menuItems: MenuItem[] = [
-  { text: "Inicio", link: "#home", showInMenu1: true, showInMenu2: false },
+  { text: "Inicio", link: "/", showInMenu1: true, showInMenu2: false },
   { text: "Estructura", link: "/estructura" },
-  { text: "Noticias ", link: "/news" },
-  { text: "Contacto", link: "#contact" },
+  { text: "Noticias ", link: "/noticias" },
+  { text: "Contacto", link: "#contacto" },
   { text: "Legislaciones", link: "/legal" },
-  { text: "Oportunidades ", link: "#oportunidades" },
+  { text: "Oportunidades ", link: "/oportunidades" },
   {
-    text: "Aqui Estamos",
-    link: "#estamos",
+    text: "Aquí Estamos",
+    link: "/aqui-estamos",
     expandido: true,
     hijos: [
-      { text: "Hello", link: "#" },
-      { text: "Candela", link: "#" },
-      { text: "Mundo", link: "#" },
+      { text: "Aquí Estamos 1", link: "/aqui-estamos/uno" },
+      { text: "Aquí Estamos 2", link: "/aqui-estamos/dos" },
+      { text: "Aquí Estamos 3", link: "/aqui-estamos/tres" },
     ],
   },
 ];
 
 const Menu = () => {
   return (
-    
     <ul className="  list-none m-0 p-3 overflow-hidden flex space-x-5">
       {menuItems
         .filter((item) => {
@@ -43,12 +39,12 @@ const Menu = () => {
         })
         .map((item) => (
           <li className="float-left text-center" key={item.text}>
-            <a
+            <Link
               className="transition-all duration-300 ease-in-out text-white font-bold py-1 px-2 rounded-md hover:shadow-sm hover:shadow-primary no-underline  bold hover:text-secondary border-b-4 border-transparent hover:border-primary"
               href={item.link}
             >
               {item.text}
-            </a>
+            </Link>
           </li>
         ))}
     </ul>
