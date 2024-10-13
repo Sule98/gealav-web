@@ -1,4 +1,4 @@
-import { useMenu } from "@/lib/hooks/useMenu";
+import { getMenu } from "@/lib/get-global-elements";
 import Link from "next/link";
 
 export type MenuItem = {
@@ -7,7 +7,7 @@ export type MenuItem = {
 };
 
 const Menu = async () => {
-  const menuItems: MenuItem[] = await useMenu();
+  const menuItems: MenuItem[] = await getMenu();
 
   return (
     <ul className="  list-none m-0 p-3 overflow-hidden flex space-x-5">
