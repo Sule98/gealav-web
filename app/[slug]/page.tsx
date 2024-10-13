@@ -35,8 +35,11 @@ export default async function Page({ params }: PageProps) {
   return (
     <div>
       <main className="h-screen">
-        {paragraphs.map(({ element: Element, data }, index) => {
-          //@ts-ignore
+        {paragraphs.map((paragraph, index) => {
+          const { element: Element, data } = paragraph as {
+            element: React.ElementType;
+            data: object;
+          };
           return <Element key={`paragraph-${page.id}-${index}`} {...data} />;
         })}
       </main>
