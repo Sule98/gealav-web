@@ -1,18 +1,11 @@
 import { getImageSrc } from "@/lib/entity-utils";
-import { getDrupalResource } from "@/lib/get-global-elements";
-import { ParagraphHeroSchema } from "@/types/schemas";
+import { DrupalParagraph, ParagraphHeroSchema } from "@/types/schemas";
 
-export const getHeroData = async (id: string) => {
-  const paragraphHero = await getDrupalResource("paragraph--hero", id);
-
-  if (!paragraphHero) {
-    return null;
-  }
-
+export const getHeroData = async (paragraph: DrupalParagraph) => {
   const {
     attributes: { field_title, field_subtitle, field_show_logo },
     relationships: { field_img_src },
-  } = ParagraphHeroSchema.parse(paragraphHero);
+  } = ParagraphHeroSchema.parse(paragraph);
 
   const imgSrc = field_img_src.data ? await getImageSrc(field_img_src) : undefined;
 
