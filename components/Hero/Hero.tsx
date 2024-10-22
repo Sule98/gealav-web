@@ -1,6 +1,6 @@
 import ParallaxBackground from "./ParallaxBackground";
 import Image from "next/image";
-import Logo from "@/public/logo_h.png"
+import Logo from "@/public/logo_h.png";
 
 interface HeroProps {
   title: string;
@@ -31,7 +31,7 @@ export default function Hero({
       </div>
 
       {showLogo && (
-        <div className="absolute -bottom-[48px] lg:-bottom-[60px] w-[120px]  left-1/2 -translate-x-1/2 z-20 ">
+        <div className="absolute -bottom-[48px] lg:-bottom-[100px] w-[200px]  left-1/2 -translate-x-1/2 z-20 ">
           <Image src={Logo} alt="logo" />
         </div>
       )}
