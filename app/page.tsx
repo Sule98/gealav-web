@@ -1,21 +1,23 @@
+import Propaganda from "@/components/Propaganda/propaganda";
+import { cards } from "./_data";
 import Hero from "@/components/Hero";
-import Banner from "@/public/banner.jpg";
+import BannerImg from "@/public/banner.jpg";
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Hero
-        title="Bienvenido a mi sitio web"
-        subtitle="Explora nuestras increíbles ofertas"
-        // Ruta a la imagen de fondo
-        showLogo={true} // Opcional: muestra el logotipo
-        imgSrc={Banner.src}
+        imgSrc={BannerImg.src}
+        title="Bienvenido a Gealav"
+        subtitle="Explora nuestras opciones"
       />
-     HOLAAA
-      <main className="h-screen"></main>
-   
-     
-    </div>
-   
+      <div className="h-20" />
+      <Propaganda
+        title="Grupo Empresarial Productor y Comercializador Avícola y Alimentos Balanceados"
+        subtitle="Nuestro compromiso es con el pueblo"
+        background="white"
+        cards={cards}
+      />
+    </>
   );
 }
