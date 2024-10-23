@@ -2,6 +2,8 @@ import Propaganda from "@/components/Propaganda/propaganda";
 import { cards } from "./_data";
 import Hero from "@/components/Hero";
 import BannerImg from "@/public/banner.jpg";
+import Footer from "@/components/Footer";
+
 
 export default function Home() {
   return (
@@ -18,6 +20,9 @@ export default function Home() {
         background="white"
         cards={cards}
       />
+    <Footer></Footer>
     </>
+   
+    
   );
 }

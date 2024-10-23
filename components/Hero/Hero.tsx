@@ -13,7 +13,7 @@ export default function Hero({
   title,
   subtitle,
   imgSrc,
-  showLogo = true,
+  showLogo =true ,
 }: HeroProps) {
   const commonProps = {
     image: imgSrc ?? "https://picsum.photos/1366/768",
