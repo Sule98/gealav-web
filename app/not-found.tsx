@@ -1,23 +1,5 @@
-import Hero from "@/components/Hero";
-import PageFound from "@/public/notfound.png";
-
+import Link from "next/link";
+import { Arrow } from "@/components/site/Icons";
 export default function NotFound() {
-  return (
-    <div className="relative bg-secondary ">
-      <Hero
-        title="Ups,Algo salio Malo"
-        subtitle="Parece que la página que buscas no existe. ¿Te gustaría volver a la página principal?"
-        imgSrc={PageFound.src}
-        showLogo={false}
-      ></Hero>
-
-      <div className="  absolute bottom-32 left-1/4 transform -translate-x-1/2">
-        <button className=" transition duration-300 p-2  bg-primary shadow-2xl shadow-accent  text-accent font-semibold rounded-2xl hover:bg-accent hover:text-primary hover:shadow-">
-          <a className="text-2xl m-5" href="/">
-            Regresar al Inicio
-          </a>
-        </button>
-      </div>
-    </div>
-  );
+ return <section className="lost"><div className="container"><em className="script">página no encontrada</em><span className="lost-code" aria-hidden="true">404</span><h1>No encontramos esta página</h1><p>Puede que el enlace haya cambiado. Puedes volver al inicio o explorar nuestros productos.</p><div className="stage-actions"><Link className="button button-yellow" href="/">Regresar al inicio <Arrow /></Link><Link className="button button-outline" href="/productos">Ver productos <Arrow /></Link></div></div></section>;
 }

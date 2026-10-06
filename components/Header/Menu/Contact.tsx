@@ -1,16 +1,15 @@
 "use client";
 
-import { Icon } from "next/dist/lib/metadata/types/metadata-types";
 import { ReactNode } from "react";
 import { IconType } from "react-icons";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
 const Contacto = ({
-  etiqueta,
+  etiqueta = "",
   children,
   icons,
 }: {
-  etiqueta: string;
+  etiqueta?: string;
   children: ReactNode;
   icons?: IconType;
 }) => (
