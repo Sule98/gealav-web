@@ -53,3 +53,9 @@ La versión 3 utiliza siete fotografías nuevas generadas con ImageGen integrado
 | public/images/innovacion-v3.webp | Ciencia e innovación |
 
 Los originales PNG se conservan con el mismo nombre y sufijo `-source.png`. Las imágenes se optimizaron como WebP sin modificar su contenido. El logotipo y el símbolo del huevo permanecen originales. La generación se realizó con fondo opaco; las escenas son ilustrativas.
+
+## Vídeo de fondo de la portada
+
+- `public/video/gallina-pasto.mp4`: «Chickens on Grass», Pexels n.º 11326418 (https://www.pexels.com/video/chickens-on-grass-11326418/), versión 960×540, 2,8 MB. Licencia de Pexels: uso gratuito, también comercial, sin atribución obligatoria.
+- El clip dura 12 segundos; la portada repite solo los cinco primeros, sin sonido, atenuado al 30 % sobre fondo claro. Con la preferencia de movimiento reducido queda en pausa.
+- Es material de archivo: no muestra instalaciones ni aves de GEALAV.

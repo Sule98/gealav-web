@@ -763,3 +763,71 @@ h1,h2,h3{font-family:var(--display);font-weight:800;letter-spacing:-.045em}
 .lost{border-radius:0 0 30px 30px}
 }
 @media(prefers-reduced-motion:reduce){.page-hero .breadcrumb,.page-hero .script,.page-hero h1,.page-hero-intro,.page-cover,.lost-code{animation:none}}
+
+/* Vídeo de fondo de la portada: muy atenuado sobre un fondo claro neutro; el texto queda siempre por encima. */
+.stage,.film{background:#fbf8f3}
+.stage-motion{position:absolute;inset:0;opacity:.3;pointer-events:none}
+.stage-motion video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.8)}
+.stage-motion:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fbf8f3 0%,#fbf8f300 70%),linear-gradient(0deg,#fbf8f3 0%,#fbf8f300 30%)}
+@media(max-width:700px){.stage-motion{opacity:.24}}
+/* Portada sobre el rojo oscuro de la paleta: el vídeo se funde en ese tono y el texto pasa a claro. */
+.stage,.film{background:var(--maroon)}
+.stage{color:#fff3da}
+.stage-motion{opacity:.42;mix-blend-mode:luminosity}
+.stage-motion video{filter:contrast(1.1)}
+.stage-motion:after{background:linear-gradient(90deg,var(--maroon) 0%,#5b060200 75%),linear-gradient(0deg,var(--maroon) 0%,#5b060200 32%)}
+.stage-line-accent,.stage .script{color:var(--yellow)}
+.stage-foot{border-top-color:#fff3da38}
+.stage-badge-ring text{fill:#fff3da}
+.stage .button-ink{border-color:#fff3da80;color:#fff3da}
+.stage .button-ink svg{background:#fff3da26}
+.stage .button-ink:hover{background:#fff3da;color:var(--maroon)}
+@media(max-width:700px){.stage-motion{opacity:.36}}
+/* Portada con solo el vídeo, oscurecido hasta casi negro y sin teñir. */
+.stage,.film{background:#0c0a09}
+.stage-motion{opacity:.34;mix-blend-mode:normal}
+.stage-motion video{filter:saturate(.9)}
+.stage-motion:after{background:linear-gradient(90deg,#0c0a09 0%,#0c0a0900 75%),linear-gradient(0deg,#0c0a09 0%,#0c0a0900 32%)}
+@media(max-width:700px){.stage-motion{opacity:.3}}
+/* Fotografía fijada con contenido: titular, texto, enlace y las etapas de la cadena. */
+.film-shade{background:linear-gradient(90deg,#120806e0 0%,#12080680 48%,#12080633 100%),linear-gradient(0deg,#120806d9 0%,#12080600 62%)}
+.film-content{position:absolute;inset:0;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(24px,5vw,80px);align-items:end;padding-block:120px clamp(28px,6vh,64px);color:#fff}
+.film-main{display:flex;flex-direction:column;align-items:flex-start}
+.film-main>strong{margin-top:22px;font-family:var(--display);font-weight:800;font-size:clamp(46px,8.4vw,136px);line-height:.86;letter-spacing:-.055em}
+.film-main p{max-width:560px;margin:clamp(16px,2vw,28px) 0 clamp(20px,2.4vw,32px);font-size:clamp(15px,1.35vw,19px);line-height:1.55;color:#f4e9dc}
+.film-steps{display:grid;gap:10px;list-style:none;margin:0;padding:0}
+.film-steps li{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid #ffffff33;border-radius:20px;background:#ffffff1f;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.film-steps span{font-family:var(--display);font-weight:800;font-size:clamp(24px,2.4vw,34px);letter-spacing:-.04em;color:var(--yellow)}
+.film-steps strong{display:block;font-size:17px;letter-spacing:-.01em}
+.film-steps small{display:block;margin-top:2px;font-size:13px;color:#f4e9dc}
+.film-note{display:block;margin-top:14px;font-size:11px;text-align:right;opacity:.8}
+@media(max-width:950px){.film-content{grid-template-columns:1fr;gap:18px;align-content:end}}
+@media(max-width:700px){.film-content{padding-top:96px}.film-main>strong{margin-top:14px}.film-main p{font-size:14px;margin-block:12px 16px}.film-steps{gap:6px}.film-steps li{padding:9px 14px;border-radius:14px;gap:12px}.film-steps small{display:none}.film-steps strong{font-size:15px}.film-steps span{font-size:20px}.film-note{margin-top:8px;text-align:left}}
+@media(max-height:680px){.film-main p{display:none}.film-main>strong{margin-bottom:16px}}
+@media(min-width:701px) and (max-width:950px){.film-steps{grid-template-columns:repeat(3,1fr)}.film-steps li{flex-direction:column;align-items:flex-start;gap:6px}}
+
+/* Pie minimalista oscuro: una frase con el botón de contacto, columnas finas de enlaces y barra inferior. */
+main{position:relative;z-index:1;background:var(--paper);border-radius:0 0 48px 48px}
+.site-footer{background:#0c0a09;color:#fff3da;border-radius:0;padding:clamp(56px,7vw,104px) 0 clamp(20px,2vw,28px);margin-top:-48px;overflow:visible}
+.site-footer>.container{padding-top:48px}
+.foot-lead{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:clamp(32px,4vw,56px);border-bottom:1px solid #fff3da26}
+.foot-lead-title{font-family:var(--display);font-weight:800;font-size:clamp(52px,9vw,140px);line-height:.84;letter-spacing:-.06em}
+.foot-cols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(24px,4vw,64px);padding-block:clamp(32px,4vw,56px)}
+.foot-about .brand{padding:10px 14px;border-radius:12px;background:#fff3da}
+.foot-about .brand img{width:160px;height:auto}
+.foot-about p{max-width:300px;margin-top:20px;font-size:14px;line-height:1.6;color:#bfae9f}
+.foot-nav{display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:15px}
+.foot-nav strong{margin-bottom:8px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#bfae9f}
+.foot-nav a{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s var(--ease),color .25s}
+.foot-nav a:hover{color:var(--yellow);background-size:100% 1px}
+.foot-nav span{color:#bfae9f}
+.site-footer .footer-bottom{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding:clamp(18px,2vw,26px) 0 0;border-top:1px solid #fff3da26;font-size:13px;color:#bfae9f}
+.foot-top{display:inline-flex;align-items:center;gap:10px;margin-left:auto;padding:0;background:transparent;font-size:13px;font-weight:600;color:#fff3da;transition:color .25s}
+.foot-top span{display:inline-block;transition:transform .35s var(--ease)}
+.foot-top:hover{color:var(--yellow)}
+.foot-top:hover span{transform:translateY(-3px)}
+@media(max-width:950px){.foot-cols{grid-template-columns:1fr 1fr 1fr}.foot-about{grid-column:1/-1}}
+@media(max-width:700px){main{border-radius:0 0 30px 30px}.site-footer{margin-top:-30px}.site-footer>.container{padding-top:30px}.foot-lead{align-items:flex-start;flex-direction:column}.foot-cols{grid-template-columns:1fr 1fr;gap:32px 20px}.foot-nav{font-size:14px}.foot-top{margin-left:0}}
+/* El pie usa el rojo oscuro de la paleta en lugar del negro. */
+.site-footer{background:var(--maroon)}
+.foot-about p,.foot-nav strong,.foot-nav span,.site-footer .footer-bottom{color:#e8c9bd}

@@ -2,14 +2,24 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useReducedMotion, useScroll, useTransform } from "motion/react";
 import * as m from "motion/react-m";
 import { Arrow } from "./Icons";
 
+// Del clip de fondo solo se repiten los primeros segundos.
+const loopSeconds = 5;
+const steps = [
+  { title: "Nutrición animal", detail: "Alimentos balanceados para las aves" },
+  { title: "Producción avícola", detail: "Huevos y carne de aves" },
+  { title: "Comercialización", detail: "Alimentos para las familias cubanas" },
+];
+
 export default function HeroExperience() {
   const film = useRef<HTMLElement>(null);
+  const clip = useRef<HTMLVideoElement>(null);
   const reducedMotion = useReducedMotion();
+  useEffect(() => { if (reducedMotion) clip.current?.pause(); }, [reducedMotion]);
   // La fotografía entra como tarjeta y crece hasta ocupar la pantalla mientras la sección permanece fijada.
   const { scrollYProgress } = useScroll({ target: film, offset: ["start end", "end end"] });
   const frameScale = useTransform(scrollYProgress, [0, .75], [.7, 1]);
@@ -22,11 +32,12 @@ export default function HeroExperience() {
   const line = (index: number) => ({ initial: false as const, whileInView: rise, viewport: { once: true }, transition: { duration: 1.1, delay: reducedMotion ? 0 : .1 + index * .12, ease: [.22, 1, .36, 1] as const } });
   return <>
     <section id="inicio" className="stage">
+      <div className="stage-motion" aria-hidden="true"><video ref={clip} src="/video/gallina-pasto.mp4" autoPlay muted loop playsInline preload="auto" onTimeUpdate={event => { if (event.currentTarget.currentTime >= loopSeconds) event.currentTarget.currentTime = 0; }} /></div>
       <div className="stage-inner">
         <m.p className="stage-kicker" initial={false} whileInView={reveal} viewport={{ once: true }} transition={{ duration: .7 }}><span className="chip">Grupo Empresarial de Alimentos y Aves</span><em className="script">hecho en Cuba</em></m.p>
         <h1 className="stage-title">
           <span className="stage-line"><m.span {...line(0)}>Alimentos </m.span></span>
-          <span className="stage-line"><m.span {...line(1)}><span className="stage-pill"><Image src="/images/huevos-v3.webp" alt="" fill sizes="340px" priority /></span>y aves </m.span></span>
+          <span className="stage-line"><m.span {...line(1)}>y aves </m.span></span>
           <span className="stage-line stage-line-accent"><m.span {...line(2)}>para Cuba.</m.span></span>
         </h1>
         <div className="stage-foot">
@@ -41,7 +52,10 @@ export default function HeroExperience() {
         <m.div className="film-frame" style={reducedMotion ? undefined : { scale: frameScale, borderRadius: frameRadius }}>
           <m.div className="film-media" style={reducedMotion ? undefined : { scale: mediaScale }}><Image src="/images/campo-hero-v3.webp" alt="Gallinas blancas y huevos en un paisaje agrícola al amanecer; imagen ilustrativa" fill sizes="100vw" /></m.div>
           <div className="film-shade" />
-          <m.div className="container film-caption" style={reducedMotion ? undefined : { opacity: captionOpacity, y: captionY }}><strong>Del campo<br />a la mesa.</strong><small>Imagen ilustrativa de la actividad avícola</small></m.div>
+          <m.div className="container film-content" style={reducedMotion ? undefined : { opacity: captionOpacity, y: captionY }}>
+            <div className="film-main"><span className="chip">La cadena de producción avícola</span><strong>Del campo<br />a la mesa.</strong><p>La producción avícola conecta el cuidado de las aves, la alimentación animal y la comercialización. Cada etapa forma parte de un mismo propósito: contribuir a la alimentación de las familias cubanas.</p><Link href="/del-campo-a-la-mesa" className="button button-yellow">Conocer la cadena <Arrow /></Link></div>
+            <div className="film-side"><ol className="film-steps">{steps.map((step, index) => <li key={step.title}><span>0{index + 1}</span><div><strong>{step.title}</strong><small>{step.detail}</small></div></li>)}</ol><small className="film-note">Imagen ilustrativa de la actividad avícola</small></div>
+          </m.div>
         </m.div>
       </div>
     </section>
